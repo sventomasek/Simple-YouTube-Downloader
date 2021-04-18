@@ -26,7 +26,8 @@ while True:
         break
 
     video = yt.streams.filter(progressive = True, file_extension = 'mp4').get_highest_resolution()
-    title = video.title
+    title = video.title # Get video title
+    title = re.sub('[\/:*?"<>|]', '', title) # Remove characters from title
     dir = os.getcwd()
 
     # Download the video
